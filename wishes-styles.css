@@ -1,0 +1,511 @@
+:root {
+  --bg-primary: #F8F0F5;
+  --bg-secondary: #FCE8B2;
+  --bg-accent: #FADDE1;
+  --card-bg: #ffffff;
+  --text-primary: #333333;
+  --text-secondary: #888888;
+  --gift-bg: #FADDE1;
+  --gift-icon: #8B5F8C;
+  --border-color: #D3C0D3;
+  --shadow: 0 8px 24px rgba(255, 105, 180, 0.15), 0 2px 8px rgba(31, 38, 135, 0.08);
+  --border-radius: 20px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Poppins", "Inter", system-ui, -apple-system, sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  overflow-x: hidden;
+  padding-bottom: 100px; /* Space for fixed navigation */
+}
+
+/* Hero photo section outside the card */
+/* Card photo inside the card, below the wish */
+.card-photo { margin-top: 14px; }
+.card-photo-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  background: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(255,105,180,0.18), 0 6px 18px rgba(31, 38, 135, 0.10);
+}
+
+/* Floating background balloons */
+.balloon {
+  position: fixed;
+  width: 40px;
+  height: 50px;
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.6;
+}
+
+.balloon::before {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 20px;
+  background: #8b5a6b;
+}
+
+/* Balloon colors and animations - matching first page */
+.balloon-1 { background: #ff8fc7; animation: float1 8s ease-in-out infinite; }
+.balloon-2 { background: #ffd3e3; animation: float2 12s ease-in-out infinite; }
+.balloon-3 { background: #ff9fbd; animation: float3 10s ease-in-out infinite; }
+.balloon-4 { background: #ffa9c6; animation: float4 14s ease-in-out infinite; }
+.balloon-5 { background: #ffc4d6; animation: float5 9s ease-in-out infinite; }
+.balloon-6 { background: #ffb3d1; animation: float6 11s ease-in-out infinite; }
+.balloon-7 { background: #ff6b9d; animation: float7 13s ease-in-out infinite; }
+.balloon-8 { background: #ffb8d1; animation: float8 7s ease-in-out infinite; }
+.balloon-9 { background: #ff9ec7; animation: float9 15s ease-in-out infinite; }
+.balloon-10 { background: #ffc7d9; animation: float10 10s ease-in-out infinite; }
+.balloon-11 { background: #ffd3e3; animation: float11 9s ease-in-out infinite; }
+.balloon-12 { background: #ff8fc7; animation: float12 13s ease-in-out infinite; }
+.balloon-13 { background: #ffb3d1; animation: float13 8s ease-in-out infinite; }
+.balloon-14 { background: #ffa9c6; animation: float14 12s ease-in-out infinite; }
+.balloon-15 { background: #ff9ec7; animation: float15 11s ease-in-out infinite; }
+.balloon-16 { background: #ffc7d9; animation: float16 14s ease-in-out infinite; }
+.balloon-17 { background: #ff6b9d; animation: float17 10s ease-in-out infinite; }
+.balloon-18 { background: #ffc4d6; animation: float18 15s ease-in-out infinite; }
+.balloon-19 { background: #ffb8d1; animation: float19 9s ease-in-out infinite; }
+.balloon-20 { background: #ff9fbd; animation: float20 13s ease-in-out infinite; }
+.balloon-21 { background: #ffd3e3; animation: float21 8s ease-in-out infinite; }
+.balloon-22 { background: #ff8fc7; animation: float22 12s ease-in-out infinite; }
+.balloon-23 { background: #ffb3d1; animation: float23 10s ease-in-out infinite; }
+.balloon-24 { background: #ffa9c6; animation: float24 14s ease-in-out infinite; }
+
+/* Balloon animations - matching first page */
+@keyframes float1 {
+  0%, 100% { transform: translate(10vw, 100vh) rotate(0deg); }
+  50% { transform: translate(15vw, 20vh) rotate(180deg); }
+}
+
+@keyframes float2 {
+  0%, 100% { transform: translate(80vw, 100vh) rotate(0deg); }
+  50% { transform: translate(75vw, 30vh) rotate(-180deg); }
+}
+
+@keyframes float3 {
+  0%, 100% { transform: translate(30vw, 100vh) rotate(0deg); }
+  50% { transform: translate(40vw, 15vh) rotate(90deg); }
+}
+
+@keyframes float4 {
+  0%, 100% { transform: translate(70vw, 100vh) rotate(0deg); }
+  50% { transform: translate(60vw, 25vh) rotate(-90deg); }
+}
+
+@keyframes float5 {
+  0%, 100% { transform: translate(50vw, 100vh) rotate(0deg); }
+  50% { transform: translate(55vw, 35vh) rotate(270deg); }
+}
+
+@keyframes float6 {
+  0%, 100% { transform: translate(20vw, 100vh) rotate(0deg); }
+  50% { transform: translate(25vw, 40vh) rotate(-270deg); }
+}
+
+@keyframes float7 {
+  0%, 100% { transform: translate(60vw, 100vh) rotate(0deg); }
+  50% { transform: translate(65vw, 18vh) rotate(120deg); }
+}
+
+@keyframes float8 {
+  0%, 100% { transform: translate(40vw, 100vh) rotate(0deg); }
+  50% { transform: translate(45vw, 45vh) rotate(-120deg); }
+}
+
+@keyframes float9 {
+  0%, 100% { transform: translate(90vw, 100vh) rotate(0deg); }
+  50% { transform: translate(85vw, 22vh) rotate(240deg); }
+}
+
+@keyframes float10 {
+  0%, 100% { transform: translate(5vw, 100vh) rotate(0deg); }
+  50% { transform: translate(8vw, 38vh) rotate(-240deg); }
+}
+@keyframes float11 { 0%,100%{ transform: translate(12vw, 100vh) rotate(0deg);} 50%{ transform: translate(18vw, 28vh) rotate(200deg);} }
+@keyframes float12 { 0%,100%{ transform: translate(22vw, 100vh) rotate(0deg);} 50%{ transform: translate(30vw, 25vh) rotate(-140deg);} }
+@keyframes float13 { 0%,100%{ transform: translate(35vw, 100vh) rotate(0deg);} 50%{ transform: translate(32vw, 18vh) rotate(160deg);} }
+@keyframes float14 { 0%,100%{ transform: translate(48vw, 100vh) rotate(0deg);} 50%{ transform: translate(44vw, 40vh) rotate(-220deg);} }
+@keyframes float15 { 0%,100%{ transform: translate(58vw, 100vh) rotate(0deg);} 50%{ transform: translate(62vw, 30vh) rotate(120deg);} }
+@keyframes float16 { 0%,100%{ transform: translate(68vw, 100vh) rotate(0deg);} 50%{ transform: translate(70vw, 22vh) rotate(-120deg);} }
+@keyframes float17 { 0%,100%{ transform: translate(75vw, 100vh) rotate(0deg);} 50%{ transform: translate(72vw, 36vh) rotate(240deg);} }
+@keyframes float18 { 0%,100%{ transform: translate(82vw, 100vh) rotate(0deg);} 50%{ transform: translate(84vw, 26vh) rotate(-260deg);} }
+@keyframes float19 { 0%,100%{ transform: translate(88vw, 100vh) rotate(0deg);} 50%{ transform: translate(86vw, 34vh) rotate(180deg);} }
+@keyframes float20 { 0%,100%{ transform: translate(94vw, 100vh) rotate(0deg);} 50%{ transform: translate(92vw, 20vh) rotate(-180deg);} }
+@keyframes float21 { 0%,100%{ transform: translate(6vw, 100vh) rotate(0deg);} 50%{ transform: translate(10vw, 45vh) rotate(140deg);} }
+@keyframes float22 { 0%,100%{ transform: translate(26vw, 100vh) rotate(0deg);} 50%{ transform: translate(22vw, 35vh) rotate(-140deg);} }
+@keyframes float23 { 0%,100%{ transform: translate(52vw, 100vh) rotate(0deg);} 50%{ transform: translate(50vw, 18vh) rotate(160deg);} }
+@keyframes float24 { 0%,100%{ transform: translate(76vw, 100vh) rotate(0deg);} 50%{ transform: translate(78vw, 42vh) rotate(-200deg);} }
+
+@keyframes float11 {
+  0%, 100% { transform: translate(15vw, 100vh) rotate(0deg); }
+  50% { transform: translate(20vw, 25vh) rotate(150deg); }
+}
+
+@keyframes float12 {
+  0%, 100% { transform: translate(75vw, 100vh) rotate(0deg); }
+  50% { transform: translate(70vw, 35vh) rotate(-150deg); }
+}
+
+@keyframes float13 {
+  0%, 100% { transform: translate(35vw, 100vh) rotate(0deg); }
+  50% { transform: translate(45vw, 20vh) rotate(200deg); }
+}
+
+@keyframes float14 {
+  0%, 100% { transform: translate(65vw, 100vh) rotate(0deg); }
+  50% { transform: translate(55vw, 30vh) rotate(-200deg); }
+}
+
+@keyframes float15 {
+  0%, 100% { transform: translate(25vw, 100vh) rotate(0deg); }
+  50% { transform: translate(30vw, 40vh) rotate(100deg); }
+}
+
+@keyframes float16 {
+  0%, 100% { transform: translate(85vw, 100vh) rotate(0deg); }
+  50% { transform: translate(80vw, 15vh) rotate(-100deg); }
+}
+
+@keyframes float17 {
+  0%, 100% { transform: translate(45vw, 100vh) rotate(0deg); }
+  50% { transform: translate(50vw, 25vh) rotate(160deg); }
+}
+
+@keyframes float18 {
+  0%, 100% { transform: translate(55vw, 100vh) rotate(0deg); }
+  50% { transform: translate(60vw, 40vh) rotate(-160deg); }
+}
+
+@keyframes float19 {
+  0%, 100% { transform: translate(95vw, 100vh) rotate(0deg); }
+  50% { transform: translate(90vw, 20vh) rotate(220deg); }
+}
+
+@keyframes float20 {
+  0%, 100% { transform: translate(0vw, 100vh) rotate(0deg); }
+  50% { transform: translate(5vw, 45vh) rotate(-220deg); }
+}
+
+/* Main container */
+.container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  position: relative;
+  z-index: 2;
+}
+
+/* Birthday card */
+.birthday-card {
+  background: var(--card-bg);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  padding: 40px;
+  max-width: 800px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 30px;
+  position: relative;
+}
+
+/* Gift icon */
+.gift-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.gift-icon {
+  width: 48px;
+  height: 48px;
+  background: var(--gift-bg);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-bottom: 20px;
+}
+
+/* Rounded badge next to gift icon */
+.gift-badge {
+  align-self: flex-start;
+  margin-top: 6px;
+  margin-left: 8px;
+  padding: 6px 10px;
+  background: #ffe1eb;
+  color: var(--gift-icon);
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 12px;
+  box-shadow: inset 0 0 0 2px #ffc1d4, 0 4px 12px rgba(255,105,180,0.20);
+}
+
+/* Text content */
+.text-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.main-heading {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+  line-height: 1.3;
+  text-align: left;
+}
+
+.subtitle {
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--text-secondary);
+  margin: 0;
+  text-align: left;
+}
+
+
+/* Photo placeholder (fixed) */
+/* Removed in favor of hero-photo */
+
+.photo-placeholder-fixed .placeholder-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.photo-placeholder-fixed .placeholder-text {
+  font-size: 14px;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+/* Actual photo styling */
+.photo-placeholder-fixed .photo-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  border-radius: inherit;
+  z-index: 2;
+}
+
+/* Hide placeholder overlay when an image is present */
+.photo-placeholder-fixed .photo-img ~ .placeholder-content { display: none; }
+
+@media (max-width: 768px) { }
+
+@media (max-width: 480px) {
+  .card-photo-img { border-radius: 14px; }
+}
+
+/* Navigation Icons - Fixed at bottom */
+.navigation-icons {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 15px 20px;
+  background: rgba(255, 255, 255, 0.75);
+  border-radius: 50px;
+  box-shadow: 0 8px 24px rgba(255, 105, 180, 0.15);
+  backdrop-filter: blur(8px);
+  z-index: 1000;
+}
+
+.nav-icon {
+  width: 50px;
+  height: 50px;
+  border: none;
+  background: linear-gradient(135deg, var(--gift-bg) 0%, #ffc1d4 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(255, 143, 179, 0.2);
+  color: var(--gift-icon);
+}
+
+.nav-icon:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 8px 20px rgba(255, 143, 179, 0.3);
+  background: linear-gradient(135deg, #ffc1d4 0%, var(--gift-bg) 100%);
+}
+
+.nav-icon:active {
+  transform: translateY(-1px) scale(1.02);
+}
+
+.nav-icon svg {
+  transition: transform 0.2s ease;
+}
+
+
+/* Responsive design */
+@media (max-width: 768px) {
+  body {
+    padding-bottom: 90px; /* Adjust for mobile navigation */
+  }
+  
+  .birthday-card {
+    flex-direction: column;
+    padding: 30px 20px;
+    gap: 20px;
+  }
+  
+  .photo-placeholder-fixed {
+    width: 100%;
+    height: 180px;
+    order: 2;
+  }
+  
+  .text-content {
+    order: 1;
+  }
+  
+  .gift-icon {
+    margin-bottom: 0;
+    align-self: flex-start;
+  }
+  
+  .main-heading {
+    font-size: 24px;
+  }
+  
+  .subtitle {
+    font-size: 15px;
+  }
+  
+  /* Navigation icons responsive */
+  .navigation-icons {
+    bottom: 15px;
+    gap: 15px;
+    padding: 12px 16px;
+  }
+  
+  .nav-icon {
+    width: 45px;
+    height: 45px;
+  }
+  
+  .nav-icon svg {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    padding-bottom: 80px; /* Adjust for small mobile navigation */
+  }
+  
+  .container {
+    padding: 15px;
+  }
+  
+  .birthday-card {
+    padding: 25px 15px;
+  }
+  
+  .main-heading {
+    font-size: 22px;
+    line-height: 1.4;
+  }
+  
+  .subtitle {
+    font-size: 14px;
+    margin-bottom: 8px;
+  }
+  
+  .photo-placeholder-fixed {
+    height: 160px;
+  }
+  
+  .gift-icon {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .gift-icon svg {
+    width: 20px;
+    height: 20px;
+  }
+  
+  /* Better spacing for mobile */
+  .text-content {
+    gap: 16px;
+  }
+  
+  /* Navigation icons for small screens */
+  .navigation-icons {
+    bottom: 10px;
+    gap: 12px;
+    padding: 10px 14px;
+  }
+  
+  .nav-icon {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .nav-icon svg {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+/* Animation for card entrance */
+.birthday-card {
+  animation: cardEntrance 0.6s ease-out;
+}
+
+@keyframes cardEntrance {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Pulse animation for photo placeholder */
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
